@@ -5,14 +5,14 @@
     - LeNet-5
     - AlexNet
     - VGG
-#### Resnet
-152 Layer로 구성되어 있다.
+#### ResNet
+- 152 Layer로 구성되어 있다.
 #### Inception Neural Network
 
 ### Classic Networks
 
 #### LeNet-5
-![Image](https://i.imgur.com/L7TYoCS.png)
+![Image](https://i.imgur.com/L7TYoCS.png)</br>
 LeNet-5의 목표는 손으로 쓴 숫자를 인식하는 것이다. 따라서 Output이 0~10으로 나온다.</br>
 Gray Scale의 이미지에 대해 학습되어서 32x32x1의 형태를 가진 Input이다.</br>
 Layer를 거칠수록 높이와 폭이 줄어들고, 채널의 수는 늘어난다.</br>
@@ -33,7 +33,7 @@ Local Response Normalization이라는 레이어 세트가 추가됐다.
     - 큰 도움이 되지 않는다. 빨간 부분은 이해하는 것 중요하지 않다.
 
 #### VGG - 16
-![Image](https://i.imgur.com/5IRvDAc.png)
+![Image](https://i.imgur.com/5IRvDAc.png)</br>
 많은 parameter를 사용하지만 단순한 네트워크를 사용한다.</br>
 CONV 과정에 stride 1, same padding, 3x3 filter를 사용한다.</br>
 MAX-POOL 과정은 2x2 filter에 stride 2를 사용한다.</br>
@@ -74,7 +74,7 @@ MAX-POOL 과정은 2x2 filter에 stride 2를 사용한다.</br>
 - bottleneck layer.
 
 ### Inception Network
-![Image](https://i.imgur.com/45lys3J.png)
+![Image](https://i.imgur.com/45lys3J.png)</br>
 ![Image](https://i.imgur.com/NMm92Xr.png)
 - gooLeNet
 
