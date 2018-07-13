@@ -80,7 +80,7 @@ output은 `n-f+1` x `n-f+1` x `1`이 된다.
 ![Image](https://i.imgur.com/sy1r5KP.png)
 - 마지막 층에서 펼친 후 벡터로 전개한후 logistic / softmax.
 
-### Polling Layers
+### Pooling Layers
 ![Image](https://i.imgur.com/fHi7QK8.png)
 높이와 너비를 줄이는 효과를 가진다. 
 
