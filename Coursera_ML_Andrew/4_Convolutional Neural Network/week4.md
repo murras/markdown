@@ -30,6 +30,8 @@
 - 같은 사람일 경우 Anchor와 Positive, 다른 사람일 경우 Negative.
 - Anchor, Positive, Negative 세가지 이미지를 보기 때문에 Triplet.
 ![Image](https://i.imgur.com/6WqFPe9.png)
+
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\bg_white&space;d(A,P)\leq&space;d(A,N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bg_white&space;d(A,P)\leq&space;d(A,N)" title="d(A,P)\leq d(A,N)" /></a></br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\left&space;\|&space;f(A)-f(P)&space;\right&space;\|^{2}&space;&plus;\alpha&space;\leq&space;\left&space;\|&space;f(A)-f(N)&space;\right&space;\|^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bg_white&space;\left&space;\|&space;f(A)-f(P)&space;\right&space;\|^{2}&space;&plus;\alpha&space;\leq&space;\left&space;\|&space;f(A)-f(N)&space;\right&space;\|^{2}" title="\left \| f(A)-f(P) \right \|^{2} +\alpha \leq \left \| f(A)-f(N) \right \|^{2}" /></a>
 - f가 항상 0을 출력한다면 만족시켜서 문제가 생긴다.
