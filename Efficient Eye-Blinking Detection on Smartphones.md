@@ -1,0 +1,2 @@
+# 스마트폰에서 효율적인 눈 깜박임 탐지
+##### Copyright © 2018 Young-Joo Han et al. 2is is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
