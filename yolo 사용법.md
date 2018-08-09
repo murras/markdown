@@ -81,4 +81,22 @@ data/obj/img3.jpg
 
 ![Image](https://i.imgur.com/TF0x4Cg.png)
 
-2.1. Early Stopping Point로부터 weights를 얻어내려면 `obj.data`에서 validation dataset을 명시해줘야한다.
+2.1. Early Stopping Point로부터 weights를 얻어내려면 `obj.data`에서 validation dataset을 명시해줘야한다. `valid` 경로를 지정해준다. validation 이미지가 따로 없다면, train과 같은 파일을 사용한다.
+
+2.2 `darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_7000.weights`
+
+`darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_8000.weights`
+
+`darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_9000.weights`
+
+
+## 학습 효과 올리기
+- 학습 전
+    - cfg 파일 맨 아래 `random=1`로 수정.
+    (다른 해상도에 대해 정확도를 높여준다.)
+    - 작은 객체 탐지를 위해서 cfg 파일 Line 717 `stride=4`, Line 720 `layers=-1,11`로 수정.
+    - 좌우 구별 감지를 원하면 Line 17에서 `flip=0` 입력.
+    - 빠른 학습을 위해서 Line 548 `stopbackward=1` 입력.
+- 학습 후
+    - cfg 파일에서 `height`와 `width`를 `608` 혹은 `832`로 수정.
+    - `Out of Memory` 오류가 생기면 `subdivision`을 `16`, `32`, `64`로 수정.
