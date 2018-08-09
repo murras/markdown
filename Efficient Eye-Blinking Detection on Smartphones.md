@@ -14,6 +14,7 @@ Correspondence should be addressed to Wooseong Kim; wooseong@gachon.ac.kr and Jo
 Received 15 December 2017; Accepted 26 March 2018; Published 21 May 2018
 
 Academic Editor: Andrea Gaglione
+
 ---
 본 논문에서는 스마트폰 플랫폼에서 눈 깜박임 탐지 또는 눈 추적에 사용할 수 있는 효율적인 방법을 제안한다. 눈 깜박임 탐지 또는 눈 추적 알고리즘은 모바일 환경에서 다양한 응용 프로그램을 사용한다. 예를 들어, 얼굴 인식 시스템 스푸핑 방지가 있다. 리소스가 제한된 스마트폰 환경에서 눈 깜박임 검출의 핵심 문제는 계산 효율 문제이다. 문제를 해결하기 위해 두 가지 머신 러닝 기술을 이용한다. SVM과 CNN을 사용하여 눈 깜박임 검출을 리소스가 제한된 스마트폰에서 효율적이고 안정적으로 수행할 수 있다. 실험 결과 스마트폰은 우리의 접근 방식이 FPS 22의 처리속도를 가지고 94.4%의 정밀도를 달성한다.
 
