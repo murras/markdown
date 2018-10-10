@@ -1,8 +1,40 @@
 # 정확한 개체 탐지 및 Semantic segmentation을 위한 Rich feature 계층 구조
 
+### Summarize
+
+
+- Figure 1의 (1)에서 region proposal 2000개를 만든다. 
+- region proposal의 사이즈가 랜덤해서, 입력 이미지의 크기가 고정되어있는 CNN에 쓰려면 transformation 해줘야한다.
+- 이 논문에서는 tightest square with context, warp 방법
+- 2000개 region proposal 각각에 대해 CNN feature vector 추출(N images * 2000)한다.
+1. CNN을 통한 feature vector 추출
+2. SVM Classfier를 통한 Image Classification
+3. Bounding Box Regression
+
+
+1. 이미지 분류 작업에 대한 CNN 네트워크 Pre-training: 예를 들어 ImageNet Dataset에서 교육된 VGG또는 ResNet, Classification task엔 N개의 Class가 포함된다.
+
+    참고: Caffe Model Zoo에서 pre-trained AlexNet을 찾을 수 있다. Tensorflow에서 찾을수 없지만 Tensorflow-slim model library는 pre-trained RestNet, VGG 등을 제공한다.
+
+2. Selective search(이미지당 2k 후보)로 카테고리 독립적인 관심 영역을 제안한다. 이런 영역들엔 대상 객체가 포함될 수 있으며 크기가 다르다.
+
+3. 지역 후보들은 CNN이 요하는 고정 크기로 변형된다.
+
+4. K+1 클래스의 warped proposal region에서 CNN fine-tuning을 한다. 추가한 한 클래스는 배경(관심 있는 대상이 없음)을 의미한다. Fine-tuing 단계에서 훨씬 더 작은 학습률을 사용해야 한다. 대부분의 proposal region이 배경이기 때문에 mini-batch가 positive case들을 과도하게 오버샘플링 한다.
+
+5. 주어진 모든 이미지 영역에서, CNN을 통한 하나의 forward propagation는 feature vector를 생성한다. 이 feature vector는 각 class에 대해 독립적으로 훈련된 SVM에 의해 소비된다.
+Positive 표본은 IoU 중복 임계값이 0.3 이상인 proposed region이며 negative 표본은 다른 표본과 관련이 없다.
+
+6. Localization 오류를 줄이기 위해, regression 모델은 CNN feature를 사용하여 Bounding box correction offset의 예측된 detection window를 올바르게 잡기 위해 훈련된다.
+
+
 ---
+
+## Abstarct
 Canonical PASCAL VOC 데이터셋에서 측정한 바와 같이 Object Detection 성능이 지난 몇년동안 정체기에 있다. 가장 좋은 방법은 일반적으로 여러개의 low-level 이미지 feature와 high-level context를 결합하는 복잡한 emsemble 시스템이다. 이 논문에서는 평균 정확도(mAP)를 30% 이상 향상시켜 53.3% mAP를 달성하는 간단하고 확장 가능한 detection 알고리즘을 제안한다. 우리의 접근 방식은 두가지 key insight를 결합한다. 하나는 물체를 localize하고 분할하기 위해 bottom-up region proposal을 high-capacity CNN에 적용할 수 있는 것이고, 다른 하나는 label 되어있는 training data가 부족할때, 보조 작업을 위해 pre-training된 모델을 해당 도메인에 맞게 fine-tuning을 적용하는 것은 상당한 성능 향상을 가져온다는 것이다. Region proposal을 CNN과 합치기 때문에 우리는 이 방법을 R-CNN(Region-CNN)이라고 부른다. 우리는 R-CNN을 CNN 아키텍쳐를 기반으로 최근에 제안된 sliding-window detector인 OverFeat과 비교한다. 우리는 R-CNN이 OverFeat보다 200-class ILSVRC2013 detection 데이터셋에서 큰 차이를 보이는 성능을 가짐을 발견했다. 소스 코드는 http://www.cs.berkeley.edu/˜rbg/rcnn 에 있다.
+
 ---
+
 
 ## 목차
 
@@ -43,18 +75,6 @@ Detection에 있어 두번째 과제는 labeled 데이터가부족하고 현재 
 지역 분류는 Semantic segmentation을 위한 표준 기법으로 Pascal VOC segmentation challenge에 R-CNN을 손쉽게 적용할 수 있다. 현재의 Semantic segmentation 시스템(O<sub>2</sub>P: second-order pooling이라고 불린다)[4]과 직접적인 비교를 돕기 위해 우리는 오픈 소스 framework 내에서 작업한다. O<sub>2</sub>P는 CPMC(Constrained Parametric Min-cuts)를 사용하여 이미지당 150개의 Region proposal을 생성한 다음 Support Vector Regression을 사용하여 각 클래스에 대해 각 지역의 품질을 예측한다. 그들의 접근 방식의 높은  성능은 CPMC 영역의 품질과 여러 feature 유형(SIFT와 LBP의 풍부한 변종)의 강력한 2차 순서 풀링으로 인한 것이다. 또한 Farabet[16]은 CNN을 다중 픽셀 단위의 분류 기준으로 사용하여 여러 조밀한 장면 labeling dataset(PASCAL을 포함하지 않은)에서 조은 결과를 나타냈다.
 
 
-- Figure 1의 (1)에서 region proposal 2000개를 만든다. 
-- region proposal의 사이즈가 랜덤해서, 입력 이미지의 크기가 고정되어있는 CNN에 쓰려면 transformation 해줘야한다.
-- 이 논문에서는 tightest square with context, warp 방법
-- 2000개 region proposal 각각에 대해 CNN feature vector 추출(N images * 2000)한다.
-1. CNN을 통한 feature vector 추출
-2. SVM Classfier를 통한 Image Classification
-3. Bounding Box Regression
 
-### Summarize
-1. 이미지 분류 작업에 대한 CNN 네트워크 Pre-training: 예를 들어 ImageNet Dataset에서 교육된 VGG또는 ResNet, Classification task엔 N개의 Class가 포함된다.
 
-    참고: Caffe Model Zoo에서 pre-trained AlexNet을 찾을 수 있다. Tensorflow에서 찾을수 없지만 Tensorflow-slim model library는 pre-trained RestNet, VGG 등을 제공한다.
-    
-2. 
 ##
