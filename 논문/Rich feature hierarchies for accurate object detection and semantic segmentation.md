@@ -30,7 +30,7 @@ Positive 표본은 IoU 중복 임계값이 0.3 이상인 proposed region이며 n
 
 ---
 
-## Abstarct
+## Abstract
 Canonical PASCAL VOC 데이터셋에서 측정한 바와 같이 Object Detection 성능이 지난 몇년동안 정체기에 있다. 가장 좋은 방법은 일반적으로 여러개의 low-level 이미지 feature와 high-level context를 결합하는 복잡한 emsemble 시스템이다. 이 논문에서는 평균 정확도(mAP)를 30% 이상 향상시켜 53.3% mAP를 달성하는 간단하고 확장 가능한 detection 알고리즘을 제안한다. 우리의 접근 방식은 두가지 key insight를 결합한다. 하나는 물체를 localize하고 분할하기 위해 bottom-up region proposal을 high-capacity CNN에 적용할 수 있는 것이고, 다른 하나는 label 되어있는 training data가 부족할때, 보조 작업을 위해 pre-training된 모델을 해당 도메인에 맞게 fine-tuning을 적용하는 것은 상당한 성능 향상을 가져온다는 것이다. Region proposal을 CNN과 합치기 때문에 우리는 이 방법을 R-CNN(Region-CNN)이라고 부른다. 우리는 R-CNN을 CNN 아키텍쳐를 기반으로 최근에 제안된 sliding-window detector인 OverFeat과 비교한다. 우리는 R-CNN이 OverFeat보다 200-class ILSVRC2013 detection 데이터셋에서 큰 차이를 보이는 성능을 가짐을 발견했다. 소스 코드는 http://www.cs.berkeley.edu/˜rbg/rcnn 에 있다.
 
 ---
@@ -72,7 +72,7 @@ Detection에 있어 두번째 과제는 labeled 데이터가부족하고 현재 
 
 
 ## [5. Semantic segmentation](#목차)
-지역 분류는 Semantic segmentation을 위한 표준 기법으로 Pascal VOC segmentation challenge에 R-CNN을 손쉽게 적용할 수 있다. 현재의 Semantic segmentation 시스템(O<sub>2</sub>P: second-order pooling이라고 불린다)[4]과 직접적인 비교를 돕기 위해 우리는 오픈 소스 framework 내에서 작업한다. O<sub>2</sub>P는 CPMC(Constrained Parametric Min-cuts)를 사용하여 이미지당 150개의 Region proposal을 생성한 다음 Support Vector Regression을 사용하여 각 클래스에 대해 각 지역의 품질을 예측한다. 그들의 접근 방식의 높은  성능은 CPMC 영역의 품질과 여러 feature 유형(SIFT와 LBP의 풍부한 변종)의 강력한 2차 순서 풀링으로 인한 것이다. 또한 Farabet[16]은 CNN을 다중 픽셀 단위의 분류 기준으로 사용하여 여러 조밀한 장면 labeling dataset(PASCAL을 포함하지 않은)에서 조은 결과를 나타냈다.
+지역 분류는 Semantic segmentation을 위한 표준 기법으로 Pascal VOC segmentation challenge에 R-CNN을 손쉽게 적용할 수 있다. 현재의 Semantic segmentation 시스템(O<sub>2</sub>P: second-order pooling이라고 불린다)[4]과 직접적인 비교를 돕기 위해 우리는 오픈 소스 framework 내에서 작업한다. O<sub>2</sub>P는 CPMC(Constrained Parametric Min-cuts)를 사용하여 이미지당 150개의 Region proposal을 생성한 다음 Support Vector Regression을 사용하여 각 클래스에 대해 각 지역의 품질을 예측한다. 그들의 접근 방식의 높은  성능은 CPMC 영역의 품질과 여러 feature 유형(SIFT와 LBP의 풍부한 변종)의 강력한 2차 순서 풀링으로 인한 것이다. 또한 Farabet[16]은 CNN을 다중 픽셀 단위의 분류 기준으로 사용하여 여러 조밀한 장면 labeling dataset(PASCAL을 포함하지 않은)에서 좋은 결과를 나타냈다.
 
 
 
