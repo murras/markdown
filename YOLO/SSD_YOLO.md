@@ -1,4 +1,4 @@
-[이 페이지를 번역](https://medium.com/@jonathan_hui/what-do-we-learn-from-single-shot-object-detectors-ssd-yolo-fpn-focal-loss-3888677c5f4d)
+# [이 페이지를 번역했습니다](https://medium.com/@jonathan_hui/what-do-we-learn-from-single-shot-object-detectors-ssd-yolo-fpn-focal-loss-3888677c5f4d)
 
 ## Single Shot Detectors
 Faster R-CNN은 전용 Region Proposal 네트워크에 이어 Classifier가 있다.
