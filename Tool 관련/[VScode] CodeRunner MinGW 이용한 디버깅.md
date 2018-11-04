@@ -1,9 +1,14 @@
 # Visual Studio Code에서 CodeRunner와 MinGW를 이용해서 C,C++ 컴파일, 디버깅하기 on Windows
 
 - *Visual Studio Code, MinGW가 이미 설치되어 있다는 가정하에서 진행합니다.*
+- 관련 포스팅
+> - [MinGW로 gcc, g++ 이용하기 on Windows](http://murra.tistory.com/35)
+> - [Visual Studio Code에서 터미널을 git bash로 사용하기 on Windows](http://murra.tistory.com/36)
+
+
 
 - VScode extension에서 CodeRunner를 설치합니다.
-[설치링크](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+    - [설치링크](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 
 ## CodeRunner 설치
 - 설치를 한 후에 `다시 로드`를 눌러서 vscode를 껐다가 켜줍니다.
