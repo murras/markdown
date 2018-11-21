@@ -1,7 +1,7 @@
 # Darkflow 설치 및 사용법 on Windows
 
 - [이 github 페이지](https://github.com/thtrieu/darkflow/)를 참조했습니다.
-- *Anaconda, tensorflow, opencv3, numpy가 설치되어 있는 환경에서 진행했습니다.*
+- *Anaconda, tensorflow-gpu, opencv3, numpy가 설치되어 있는 환경에서 진행했습니다.*
 
 - Python 3.5가 권장된다고 합니다. 저는 3.6.5에서 진행했습니다.
 - 선택사항으로 가상 환경(virtualenv, conda, pipenv)에서 진행해도 된다고 하는데, 저는 아직 가상 환경에 대한 체감이 없어서 그냥 base env에서 진행했습니다.
@@ -49,12 +49,24 @@ filters=30
 activation=linear
 ```
 - `labels.txt`에 class명을 적는다.
-```
+```c
 traffic light
 ```
-
-- annotation 경로와 dataset 경로를 적어주고 아래 형식으로 입력한다.
+- Train Command 예시
     - bash
-        - `python flow --model cfg/my.cfg --train --load yolo.weights --dataset data/train_traffic_light --annotation data/annotations --gpu 1.0`
+        - `python flow --model cfg/my.cfg --train --load yolo.weights --dataset data/train_traffic_light --annotation data/annotations --gpu 1.0`   
     - cmd
         - `python flow --model cfg\my.cfg --train --load yolo.weights --dataset data\train_traffic_light --annotation data\annotations --gpu 1.0`
+
+- Argument
+    - `--train` : 학습 시킬때
+    - `--load` : weights 파일 Load, -1을 주면 `ckpt/checkpoint`에서 가장 최근걸 불러온다.
+    - `--trainer adam` : Adam optimizer로 완전히 새로운 weights 파일로 시작.
+    - `--model` : cfg 파일 경로
+    - `--annotation` : xml 파일 경로
+    - `--dataset` : 학습 image 파일 경로
+    - `--demo` : video test시 video 파일 경로 입력
+    - `--imgdir` : image test시 image 파일 경로 입력
+
+- `defaults.py`
+    - 수정할 수 있는 부분이 많다. 추후 업데이트.
