@@ -1,0 +1,1 @@
+- 터미널 https://glitchbone.github.io/vscode-base16-term/#/seti
