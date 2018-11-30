@@ -204,7 +204,7 @@ title:  "Hello My Blog!"
 date:   2018-12-01 11:26:30 +0900
 categories: jekyll update
 ---
-내 용 
+내  용 
 ```
 
 ![Image](https://i.imgur.com/4XLBVzU.png)
