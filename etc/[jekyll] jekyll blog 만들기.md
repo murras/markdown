@@ -3,12 +3,12 @@
 - [이재열님](https://github.com/malkoG)의 강의를 토대로 만들어진 매뉴얼입니다.
 
 ### 목차
-1. [GitHub 설치]()
-2. [Ruby 설치]()
-3. [Visual Studio Code 설치]()
-4. [Jekyll 설치]()
+1. [Git 설치](#Git-설치)
+2. [Ruby 설치](#Ruby-설치)
+3. [Visual Studio Code 설치](#Visual-Studio-Code-설치)
+4. [Jekyll 설치 및 설정](#Jekyll-설치-및-설정)
 
-### [GitHub 설치](#목차)
+### [Git 설치](#목차)
 [Git 설치 링크](https://git-scm.com/)에 들어갑니다.
 
 ![Image](https://i.imgur.com/T56GzYB.png)
@@ -23,7 +23,7 @@
 
 ![Image](https://i.imgur.com/GMJU4R8.png)
 
-- RubyInstaller를 누릅니다.
+- `RubyInstaller`를 누릅니다.
   
 ![Image](https://i.imgur.com/Dorau1u.png)
 
@@ -35,7 +35,7 @@
 
 ![Image](https://i.imgur.com/AyEyTvl.png)
 
-- 커맨드 창이 나오는데, 3을 입력해서 설치한다.
+- 커맨드 창이 나오는데, 3을 입력해서 설치하면 됩니다.
 
 ![Image](https://i.imgur.com/sBHd7nJ.png)
 
@@ -59,11 +59,13 @@
 ![Image](https://i.imgur.com/qXZtIwr.png)
 
 
-### [Jekyll 설치](#목차)
+### [Jekyll 설치 및 설정](#목차)
 #### Jekyll Install
 - 다시 터미널을 열고 `gem install jekyll`을 입력한다.
 
 ![Image](https://i.imgur.com/2bRiBaJ.png)
+
+- Jekyll 설치가 다 됐으면 `bundle install`을 입력한다.
 
 #### Repository 생성
 - jekyll이 설치되는 동안 자신의 GitHub에 들어가서 Repository를 만든다.
@@ -83,7 +85,6 @@
 ![Image](https://i.imgur.com/QRDdrP1.png)
 
 #### Jekyll Install (이어서)
-- Jekyll 설치가 다 됐으면 `bundle install`을 입력한다.
 
 ![Image](https://i.imgur.com/jH2hprj.png)
 
@@ -93,7 +94,7 @@
 
 ![Image](https://i.imgur.com/iM7Pljj.png)
 
-- 항목 잘라내기 후 Repo에 붙여넣기.
+> 항목 잘라내기 후 Repo에 붙여넣기.
 
 ![Image](https://i.imgur.com/x29DaJZ.png)
 
@@ -115,7 +116,7 @@
 
 ![Image](https://i.imgur.com/4T0wQSh.png)
 
-- `Ctrl` + `C`를 누르면 서버를 멈출 수 있다.
+- 아까 그 터미널에서 `Ctrl` + `C`를 누르면 서버를 멈출 수 있다.
   
 #### Publishing
 - VS Code는 터미널 없이 git에 push가 가능하다.
