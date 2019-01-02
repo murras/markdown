@@ -83,11 +83,17 @@
 
 2.1. Early Stopping Point로부터 weights를 얻어내려면 `obj.data`에서 validation dataset을 명시해줘야한다. `valid` 경로를 지정해준다. validation 이미지가 따로 없다면, train과 같은 파일을 사용한다.
 
-2.2 `darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_7000.weights`
+2.2 아래 명령어로 어떤 weights가 더 좋은 성능을 보이는지 알 수 있다.
 
-    `darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_8000.weights`
+```
+darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_7000.weights
+darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_8000.weights
+darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_9000.weights
+```
 
-    `darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_9000.weights`
+- `-map` flag를 통해 train 시킬수도 있다.
+
+`darknet.exe detector train data/obj.data yolo-obj.cfg darknet53.conv.74 -map`
 
 
 ## 학습 효과 올리기
