@@ -320,8 +320,10 @@ gcc version 6.3.0 (MinGW.org GCC-6.3.0-1)
 }
 ```
 - 입력을 받는 cpp 파일과 input.txt를 생성합니다.
+    - 사진에`#include <string>` 추가해주세요.
 
 ![Image](https://i.imgur.com/AQcbV66.png)
+
 
 - cpp 파일에 우클릭 - Run Code 혹은 cpp 파일에 포커스를 두고 `Ctrl` + `Alt` + `N`을 누르고 밑의 터미널을 확인해봅시다.
 
