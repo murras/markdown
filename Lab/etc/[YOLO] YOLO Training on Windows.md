@@ -1,5 +1,9 @@
 # YOLO Training on Windows.
 ## 명령어 사용법
+- `-ext_output` : output coordinate of objects
+- `-save_labels < data/test.txt` : test.txt에 적힌 경로의 이미지에 label 적힌 txt 저장.(Marking 좌표 저장)
+    - ex) `darknet.exe detector test .data .cfg .weights -dont_show -ext_output -save_labels < data/train.txt`
+  
 - 이미지 예시
     - `darknet.exe detector test datafile.data cfgfile.cfg weightsfile.weights -i 0`(`-thresh 0.25`) (`output.jpg -ext_output`)
 
@@ -17,7 +21,6 @@
 - webcam에 관한 내용
 1. Download for Android phone mjpeg-stream soft: IP Webcam / Smart WebCam
 
-
     * Smart WebCam - preferably: https://play.google.com/store/apps/details?id=com.acontech.android.SmartWebCam2
     * IP Webcam: https://play.google.com/store/apps/details?id=com.pas.webcam
 
@@ -28,6 +31,7 @@
 
 * 194 MB COCO-model: `darknet.exe detector demo data/coco.data yolo.cfg yolo.weights http://192.168.0.80:8080/video?dummy=param.mjpg -i 0`
 * 194 MB VOC-model: `darknet.exe detector demo data/voc.data yolo-voc.cfg yolo-voc.weights http://192.168.0.80:8080/video?dummy=param.mjpg -i 0`
+
 ## 학습하는 법
 1. `yolov3.cfg`를 복사해서 `yolo-obj.cfg` 이름으로 바꾼 뒤 다음 내용으로 수정한다.
     - `batch=64`
