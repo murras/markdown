@@ -53,7 +53,7 @@
 5. 이미지 파일들은 [Yolo_mark](https://github.com/AlexeyAB/Yolo_mark)를 통해 bounding box marking을 해줘야한다.
 
 6. `train.txt` 파일을 `build\darknet\x64\data\`에 넣는다. 내용은 이미지 파일의 상대경로를 적어주어야한다.
-    ```
+    ```c
     data/obj/img1.jpg
     data/obj/img2.jpg
     data/obj/img3.jpg
@@ -89,7 +89,7 @@
 
 2.2 아래 명령어로 어떤 weights가 더 좋은 성능을 보이는지 알 수 있다.
 
-```
+```c
 darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_7000.weights
 darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_8000.weights
 darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_9000.weights
@@ -107,6 +107,7 @@ darknet.exe detector map data/obj.data yolo-obj.cfg backup\yolo-obj_9000.weights
     - 작은 객체 탐지를 위해서 cfg 파일 Line 717 `stride=4`, Line 720 `layers=-1,11`로 수정.
     - 좌우 구별 감지를 원하면 Line 17에서 `flip=0` 입력.
     - 빠른 학습을 위해서 Line 548 `stopbackward=1` 입력.
+    - anchors 크기 재계산해서 더 정확하게 계산하기 : `darknet.exe detector calc_anchors data/obj.data -num_of_clusters 9 -width 416 -height 416`
 - 학습 후
     - cfg 파일에서 `height`와 `width`를 `608` 혹은 `832`로 수정.
     - `Out of Memory` 오류가 생기면 `subdivision`을 `16`, `32`, `64`로 수정.
