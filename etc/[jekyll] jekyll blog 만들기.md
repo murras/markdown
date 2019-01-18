@@ -13,7 +13,7 @@
 
 ![Image](https://i.imgur.com/T56GzYB.png)
 
-- 재열님은 아래 이외에는 모두 Next 하셨습니다.
+- 재열님은 아래 이외에는 모두 Next 하셨습니다. 
     - Use Git from Git bash only.     
     - Unix Style line endings.
     - Enable Symbolic Link 체크
