@@ -16,5 +16,6 @@
 - Jupyter에 등록하기 위해 아래 명령을 입력합니다.
   - `conda install notebook ipykernel`
   - `python -m ipykernel install --user --name tf --display-name "Tensorflow"`
-- conda 환경 삭제 : `conda remove --name`
+- 환경 확인 : `conda info --envs`
+- conda 환경 삭제 : `conda remove --name ENV_NAME --all`
 - Jupyter에서 커널 삭제 : `jupyter kernelspec uninstall tf`
