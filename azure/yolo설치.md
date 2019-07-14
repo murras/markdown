@@ -1,8 +1,8 @@
-- 기본 설치
- - `sudo apt update`
- - `sudo apt upgrade`
- - `sudo apt install build-essential`
- - `sudo apt install unzip`
+- 기본 설치  
+   - `sudo apt update`
+   - `sudo apt upgrade`
+   - `sudo apt install build-essential`
+   - `sudo apt install unzip`
 
 - CMake 설치
 ```sh
@@ -24,12 +24,12 @@ sudo apt-get install libgtk-3-dev
 sudo apt-get install libatlas-base-dev gfortran
 sudo apt-get install python3-dev
 cd ~
-wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.0.zip
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.0.zip
+wget -O opencv.zip https://github.com/opencv/opencv/archive/3.3.0.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.3.0.zip
 unzip opencv.zip
 unzip opencv_contrib.zip
-mv opencv-3.4.0 opencv
-mv opencv_contrib-3.4.0/ opencv_contrib
+mv opencv-3.3.0 opencv
+mv opencv_contrib-3.3.0/ opencv_contrib
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 sudo pip install virtualenv virtualenvwrapper
@@ -57,12 +57,16 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D OPENCV_ENABLE_NONFREE=ON \
 	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
 	-D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
-	-D BUILD_EXAMPLES=OFF .. \
+	-D BUILD_EXAMPLES=ON ..
 # 나중에 추가    -DBUILD_opencv_xfeatures2d=OFF
 make -j4
 ```
 - 오류 나는 파일에 들어가서 아래를 추가해준다.
 ![Image](https://i.imgur.com/WbrudQI.png)
+
+![Image](https://i.imgur.com/wDWccZu.png)
+
+![Image](https://i.imgur.com/5rBJtzX.png)
 ```sh
 sudo make install
 sudo ldconfig
@@ -109,3 +113,43 @@ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64/
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 sudo cp cuda/lib64/libcudnn* /usr/lib/x86_64-linux-gnu
 ```
+
+sudo apt-get install mesa-utils libgl1-mesa-dri libqt4-opengl-dev 
+
+OpenCV 최적화를 위해 사용되는 라이브러리들입니다.
+
+ 
+
+sudo apt-get install libatlas-base-dev gfortran libeigen3-dev
+
+
+
+
+ 
+
+python2.7-dev와 python3-dev 패키지는 OpenCV-Python 바인딩을 위해 필요한 패키지들입니다. 
+
+Numpy는 매트릭스 연산등을 빠르게 처리할 수 있어서 OpenCV에서 사용됩니다. 
+
+sudo apt-get install python2.7-dev python3-dev python-numpy python3-numpy
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D WITH_TBB=OFF \
+-D WITH_IPP=OFF \
+-D WITH_1394=OFF \
+-D BUILD_WITH_DEBUG_INFO=OFF \
+-D BUILD_DOCS=OFF \
+-D INSTALL_C_EXAMPLES=ON \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D BUILD_EXAMPLES=OFF \e
+-D BUILD_TESTS=OFF \
+-D BUILD_PERF_TESTS=OFF \
+-D WITH_QT=ON \
+-D WITH_OPENGL=ON \
+-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.0/modules \
+-D WITH_V4L=ON  \
+-D WITH_FFMPEG=ON \
+-D WITH_XINE=ON \
+-D BUILD_NEW_PYTHON_SUPPORT=ON \
+../
+[출처] Ubuntu 16.04에 opencv_contrib 포함하여 OpenCV 3.4 설치|작성자 쿠핑
