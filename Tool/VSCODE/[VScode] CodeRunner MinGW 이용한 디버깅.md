@@ -72,7 +72,7 @@
 - 일단 CodeRunner 설정이 끝났고, 테스트를 합니다.
     - 테스트할 코드를 적고, 우클릭-Run Code(혹은 `Ctrl`+`Alt`+`N`)를 하면 됩니다.
 
-    ![Image](https://i.imgur.com/jfd6aOy.png)png)    ![uploading...](http://i.imgur.com/uploading.png)
+    ![Image](https://i.imgur.com/jfd6aOy.png)png)
 
     - 하단 혹은 우측에 터미널이 나오고, 아래와 같이 결과가 나옵니다. 입력값이 필요한 코드였으면 입력을 할 수 있습니다.
 
